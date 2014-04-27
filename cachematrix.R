@@ -17,7 +17,7 @@
 ## 		the inverse matrix
 ##	getinverse - returns the stored inverse matrix
 
-makeCacheMatrix <- function(inputMatrix = matrix()) {
+makeCacheMatrix <- function(myMatrix = matrix()) {
 	
 	cachedInverseMatrix <- NULL
 
@@ -33,16 +33,6 @@ makeCacheMatrix <- function(inputMatrix = matrix()) {
 	}
 
 	getinverse <- function() cachedInverseMatrix
-
-	## This line is needed in case you define the same variable
-	## as two different matrices. i.e. if a and b are different
-	## matrices, and you do:
-	##		list <- makeCacheMatrix(a)
-	##		list <- makeCacheMatrix(b)
-	## the list is stored correctly only with this extra line
-
-	if(!identical(myMatrix,inputMatrix))
-		myMatrix <<- inputMatrix
 
 	list (set = set, get = get,
 		setinverse = setinverse,
